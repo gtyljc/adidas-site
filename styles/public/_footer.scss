@@ -1,0 +1,54 @@
+@use "./tools" as t;
+@use "./vars" as v;
+
+.footer {
+    @include t.flex-start-center-box();
+
+    width: 100%;
+    height: v.$footer-height;
+    background-color: v.$black;
+    position: absolute;
+    bottom: 0px;
+
+    &__ad {
+        @include t.center-center-box(row);
+
+        width: 100%;
+        background-color: v.$blue;
+        padding: 50px 0px;
+        gap: 40px;
+
+        @media (max-width: 1200px) {
+            flex-direction: column;
+        }
+    }
+
+    &__ad-title {
+        letter-spacing: 2px;
+        color: v.$white;
+
+        @media (max-width: 1200px) {
+            text-align: center;
+        }
+    }
+
+    &__content {
+        @include t.flex-box(row);
+        padding: 35px 0px;
+
+        .navigation-links-con__title {
+            color: v.$white;
+        }
+
+        .navigation-links-con__link {
+            color: v.$white;
+        }
+
+        .navigation-links-con {
+            min-width: 220px;
+            max-width: 220px;
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+    }
+}

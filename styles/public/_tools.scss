@@ -1,0 +1,48 @@
+
+
+@mixin flex-box($direction: column) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin flex-start-center-box($direction: column) {
+    justify-content: flex-start;
+    align-items: center;
+
+    @include flex-box($direction);
+}
+
+@mixin center-center-box($direction: column) {
+    justify-content: center;
+    align-items: center;
+
+    @include flex-box($direction);
+}
+
+@mixin flex-end-center-box($direction: column) {
+    justify-content: flex-end;
+    align-items: center;
+
+    @include flex-box($direction);
+}
+
+@mixin space-between-center-box($direction: column) {
+    justify-content: space-between;
+    align-items: center;
+
+    @include flex-box($direction);
+}
+
+@mixin flex-start-flex-end-box($direction: column) {
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    @include flex-box($direction);
+}
+
+@mixin flex-end-flex-start-box($direction: column) {
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    @include flex-box($direction);
+}

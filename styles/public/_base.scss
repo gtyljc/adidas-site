@@ -17,7 +17,6 @@ body {
     font-family: "Adidas font";
     font-size: 14px;
     font-weight: 400;
-    position: relative;
 }
 
 main {
@@ -25,7 +24,6 @@ main {
     height: 100%;
     padding-top: 135px;
     max-width: 1920px;
-    margin-bottom: v.$footer-height;
 
     section {
         margin-bottom: 50px;
@@ -43,6 +41,15 @@ main {
 
 a {
     text-decoration: none;
+}
+
+button {
+    display: block;
+    border: none;
+    padding: 0px;
+    background: none;
+    font-family: "Adidas font";
+    cursor: pointer;
 }
 
 ul, ol {
@@ -63,6 +70,7 @@ ul, ol {
     border: 0px;
     padding: 0px;
     cursor: pointer;
+    flex-shrink: 0;
 
     @include t.center-center-box();
 
@@ -129,13 +137,25 @@ ul, ol {
 .logo {
     &--small {
         height: 30px;
+
+        @media (max-width: 800px) {
+            height: 20px;
+        }
     }
 
     &--standart {
         height: 50px;
+
+        @media (max-width: 800px) {
+            height: 35px;
+        }
     }
 
     &--large {
         height: 70px;
+    
+        @media (max-width: 800px) {
+            height: 50px;
+        }
     }
 }

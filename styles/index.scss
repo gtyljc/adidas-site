@@ -13,6 +13,10 @@
     background-color: v.$yellow;
     position: relative;
 
+    @media (max-width: 600px) {
+        padding: 0 v.$mobile-page-padding;
+    }
+
     &__content {
         @include t.flex-end-flex-start-box(column);
 
@@ -59,14 +63,26 @@
 
     &--small {
         font-size: 15px;
+        
+        @media (max-width: 500px) {
+            font-size: 14px;
+        }
     }
 
     &--middle {
         font-size: 17px;
+    
+        @media (max-width: 500px) {
+            font-size: 13px;
+        }
     }
 
     &--large {
         font-size: 20px;
+
+        @media (max-width: 500px) {
+            font-size: 15px;
+        }
     }
 }
 
@@ -82,6 +98,10 @@
     background-color: v.$white;
     gap: 20px;
     z-index: 0;
+
+    @media (max-width: 500px) {
+        font-size: 15px;
+    }
 
     &:hover {
         &::before {
@@ -123,12 +143,20 @@
 
     padding: 0px 65px;
     box-sizing: border-box;
-    gap: 35px;
+
+    @media (max-width: 600px) {
+        padding: 0px v.$mobile-page-padding;
+    }
 
     &__title {
         font-size: 30px;
         font-weight: 700;
         letter-spacing: 2px;
+        margin-bottom: 35px;
+
+        @media (max-width: 600px) {
+            font-size: 25px;
+        }
     }
 
     &__categories-con {
@@ -146,6 +174,10 @@
 
         @media (max-width: 1200px) {
             width: 50%;
+        }
+
+        @media (max-width: 600px) {
+            padding: 2px;
         }
     }
 
@@ -181,6 +213,10 @@
     padding: 0px 65px;
     box-sizing: border-box;
 
+    @media (max-width: 600px) {
+        padding: 0px v.$mobile-page-padding;
+    }
+
     &__btns-con {
         @include t.space-between-center-box(row);
         
@@ -196,7 +232,8 @@
         background-color: v.$white;
         border: 1px solid v.$light-blue;
         pointer-events: auto;
-    
+        transition: opacity 0.5s v.$appearing-time-func;
+
         &:nth-child(1) {
             opacity: 0;
         }
@@ -204,7 +241,6 @@
 
     &__row-con {
         width: 100%;
-        height: 500px;
         position: relative;
         overflow: hidden;
     }
@@ -215,13 +251,15 @@
         align-items: flex-start;
         height: 100%;
         gap: 10px;
+        transition: transform 0.5s v.$scroll-time-func;
     }
 
     &__card {
         width: 300px;
         position: relative;
-        margin: 1px;
+        padding: 2px;
         flex-shrink: 0;
+        box-sizing: border-box;
 
         a {
             text-decoration: none;
@@ -252,6 +290,10 @@
     height: 90px;
     position: absolute;
     inset: 0;
+
+    @media (max-width: 600px) {
+        padding: 0px v.$mobile-page-padding;
+    }
 
     &__play-stop-btn {
         transition: background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -284,7 +326,7 @@
 
         height: 50px;
         background-color: v.$light-blue;
-        padding: 0px 20px;
+        padding: 0px v.$mobile-page-padding;
         box-sizing: border-box;
         font-size: 17px;
     }
@@ -315,6 +357,12 @@
         @include t.space-between-center-box(row);
         
         margin-bottom: 30px;
+
+        .fat-underlined-link {
+            @media (max-width: 700px) {
+                display: none;
+            }
+        }
     }
 
     &__menu-btn {
@@ -365,6 +413,7 @@
         height: 5px;
         border-radius: 3px;
         background-color: v.$light-blue;
+        margin-top: 40px;
     }
 
     &__scroll-track {
@@ -415,9 +464,12 @@
 }
 
 .apps-section {
-    // .categories-section__categories-con {
-    //     justify-content: flex-start;
-    // }
+    gap: 0px;
+
+    @media (max-width: 800px) {
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
 
     &__categories-con {
         @include t.flex-start-flex-end-box(row);
@@ -428,14 +480,26 @@
         @media (max-width: 1200px) {
             width: auto;
         }
+
+        @media (max-width: 900px) {
+            display: none;
+        }
     }
     
     &__category {
         $size: 250px;
 
-        min-width: $size;
+        width: $size;
         height: $size;
-        padding: 0px;
+    }
+
+    &__mobile {
+        width: 100%;
+        height: 320px;
+    
+        @media (min-width: 900px) {
+            display: none;
+        }
     }
 }
 
@@ -443,15 +507,35 @@
     @include t.space-between-center-box(row);
     
     padding: 60px 50px;
+    box-sizing: border-box;
 
     .topics-navigation-section__title {
+        font-size: 18px;
         margin-bottom: 15px;
+
+        @media (max-width: 1200px) {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
     }
 
-    .
+    .navigation-links-con {
+        width: 25%;
+
+        @media (max-width: 1200px) {
+            width: 50%;
+            padding: 20px 0px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 600px) {
+            width: 100%;
+            padding: 25px 0px;
+        }
+    }
 
     @media (max-width: 1200px) {
-        
+        flex-wrap: wrap;
     }
 }
 
@@ -459,7 +543,12 @@
     @include t.center-center-box();
 
     background-color: v.$black;
-    padding: 80px 0px;
+    padding: 80px 40px;
+    box-sizing: border-box;
+
+    @media (max-width: 600px) {
+        padding: 80px v.$mobile-page-padding;
+    }
 
     &__content {
         @include t.center-center-box();
@@ -473,6 +562,11 @@
         letter-spacing: 1px;
         margin-bottom: 25px;
         text-align: center;
+
+        @media (max-width: 600px) {
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
 
     &__text {
@@ -481,5 +575,6 @@
         color: v.$white;
         text-align: justify;
         margin-bottom: 50px;
+        line-height: 27px;
     }
 }
